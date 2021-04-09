@@ -2,7 +2,7 @@ import { BehaviorSubject } from "rxjs";
 import { Injectable } from "@angular/core";
 import { Email } from "../models/email.model";
 import { FilterType } from "../enums/filter-type.enum";
-import * as emailData from '../../assets/mocks/emails.json'
+import * as emailData from '../../assets/mocks/emails.json';
 
 @Injectable({
     providedIn: 'root'
@@ -18,7 +18,13 @@ export class GmailService {
     )
     public currentEmails = this.emails.asObservable()
 
-    private filteredEmails: BehaviorSubject<Email[]> = new BehaviorSubject<Email[]>(JSON.parse(JSON.stringify(emailData.messages)) as Email[])
+    private filteredEmails: BehaviorSubject<Email[]> = new BehaviorSubject<Email[]>(
+        JSON.parse(
+            JSON.stringify(
+                emailData.messages
+            )
+        ) as Email[]
+    )
     public currentFilteredEmails = this.filteredEmails.asObservable()
 
     public currentIndex: BehaviorSubject<number> = new BehaviorSubject<number>(0)
@@ -74,14 +80,18 @@ export class GmailService {
                 this.setFilteredEmails(
                     this.emails
                         .value
-                        .filter(email => email.tags.find(t => t == 'work'))
+                        .filter(email => email
+                            .tags
+                            .find(t => t == 'work'))
                 )
                 break;
             case FilterType.TRAVEL :
                 this.setFilteredEmails(
                     this.emails
                         .value
-                        .filter(email => email.tags.find(t => t == 'travel'))
+                        .filter(email => email
+                            .tags
+                            .find(t => t == 'travel'))
                 )
                 break;
             case FilterType.SPAM :
