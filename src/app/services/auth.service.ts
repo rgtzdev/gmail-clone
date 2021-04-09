@@ -1,5 +1,5 @@
-import { Injectable } from "@angular/core";
 import { BehaviorSubject } from "rxjs";
+import { Injectable } from "@angular/core";
 import { Account } from "../models/account.model";
 import * as accountData from '../../assets/mocks/accounts.json'
 
