@@ -13,6 +13,7 @@ import { GmailService } from "src/app/services/gmail.service";
 })
 export class SidebarComponent implements OnInit, OnDestroy {
 
+    public inboxNotRead: number = 0
     public currentSelectedMenuOption: string = 'INBOX'
 
     public sidebarOpen: boolean = true
@@ -29,6 +30,8 @@ export class SidebarComponent implements OnInit, OnDestroy {
             .subscribe(so => {
                 this.sidebarOpen = so
             })
+        this.inboxNotRead = this.gmail_service
+            .getInboxNotReadAmount()
     }
     
     ngOnDestroy() {}

@@ -102,6 +102,11 @@ export class GmailService {
         this.currentFilter.next(filter)
     }
 
+    getInboxNotReadAmount = (   
+    ) : number => this.emails
+        .value
+        .filter(e => !e.read).length
+
     filterWithoutArchivedOrDeleted = (
         emails: Email[]
     ):Email[] => emails

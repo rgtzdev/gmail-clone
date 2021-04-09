@@ -28,9 +28,14 @@
                 (click)="clickOnMenu('INBOX')" 
                 [class.small]="!sidebarOpen"
                 [class.selected]="currentSelectedMenuOption == 'INBOX'">
-                <div class="inner-list-item" >
-                    <mat-icon>inbox</mat-icon> 
+                <div class="inner-list-item">
+                    <mat-icon
+                        matBadgeSize="small"
+                        [matBadge]="inboxNotRead" 
+                        matBadgeColor="warn"
+                        [matBadgeHidden]="inboxNotRead == 0 || sidebarOpen">inbox</mat-icon> 
                     <div class="inner-text" >Inbox</div>
+                    <div class="inner-badge" *ngIf="inboxNotRead > 0 && sidebarOpen">{{inboxNotRead}}</div>
                 </div>
             </a>
             <a 

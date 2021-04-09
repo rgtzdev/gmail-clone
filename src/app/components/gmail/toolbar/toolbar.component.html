@@ -9,22 +9,34 @@
         class="menu-select-icon" 
         [matMenuTriggerFor]="menu">arrow_drop_down</mat-icon>
     <mat-menu #menu="matMenu" [xPosition]="'before'">
-        <button mat-menu-item (click)="toggleChecked(true)">
+        <button 
+            mat-menu-item 
+            (click)="toggleChecked(true)">
             <span>All</span>
         </button>
-        <button mat-menu-item (click)="toggleChecked(false)">
+        <button 
+            mat-menu-item 
+            (click)="toggleChecked(false)">
             <span>None</span>
         </button>
-        <button mat-menu-item (click)="selectAllRead()">
+        <button 
+            mat-menu-item 
+            (click)="selectAllRead()">
             <span>Read</span>
         </button>
-        <button mat-menu-item (click)="selectAllUnread()">
+        <button 
+            mat-menu-item 
+            (click)="selectAllUnread()">
             <span>Unread</span>
         </button>
-        <button mat-menu-item (click)="selectAllStarred()">
+        <button 
+            mat-menu-item 
+            (click)="selectAllStarred()">
             <span>Started</span>
         </button>
-        <button mat-menu-item (click)="selectAllUnstarred()">
+        <button 
+            mat-menu-item 
+            (click)="selectAllUnstarred()">
             <span>Unstarted</span>
         </button>
     </mat-menu>
