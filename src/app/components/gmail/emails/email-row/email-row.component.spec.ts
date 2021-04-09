@@ -5,9 +5,9 @@ import { DebugElement } from "@angular/core"
 import { Email } from "src/app/models/email.model"
 import { EmailRowComponent } from "./email-row.component"
 import { GmailService } from "src/app/services/gmail.service"
+import { MaterialModule } from "src/app/modules/material.module"
 import { ComponentFixture, TestBed } from "@angular/core/testing"
 import * as emailData from "../../../../../assets/mocks/emails.json"
-import { MaterialModule } from "src/app/modules/material.module"
 
 describe('EmailRowComponent', () => {
     

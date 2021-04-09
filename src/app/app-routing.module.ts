@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AuthLayoutComponent } from './layouts/auth/auth.layout.component';
 import { GmailLayoutComponent } from './layouts/gmail/gmail.layout.component';
 
 const routes: Routes = [
@@ -15,6 +16,15 @@ const routes: Routes = [
 			path: '',
 			loadChildren: () =>
 				import('./modules/gmail.module').then(m => m.GmailModule)
+		}],
+	},
+	{
+		path: 'auth',
+		component: AuthLayoutComponent,
+		children: [{
+			path: '',
+			loadChildren: () =>
+				import('./modules/auth.module').then(m => m.AuthModule)
 		}],
 	},
 ];
