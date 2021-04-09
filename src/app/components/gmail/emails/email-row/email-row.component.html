@@ -2,7 +2,8 @@
     class="email-container" 
     [cdkDragData]="email" 
     cdkDrag 
-    [class.read]="email.read">
+    [class.read]="email.read"
+    [cdkDragDisabled]="isMobile">
     <mat-checkbox 
         [disableRipple]="true" 
         labelPosition="before"

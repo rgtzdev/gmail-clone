@@ -1,5 +1,6 @@
 import { Component, Input } from "@angular/core";
 import { Email } from "src/app/models/email.model";
+import { AppService } from "src/app/services/app.service";
 import { GmailService } from "src/app/services/gmail.service";
 
 @Component({
@@ -14,10 +15,14 @@ export class EmailRowComponent {
 
     public showBody: string
     public showDate: string
+    public isMobile: boolean = false
 
     constructor(
+        private app_service: AppService,
         private gmail_service: GmailService
-    ) {}
+    ) {
+        this.isMobile = this.app_service.isMobile()
+    }
     
     ngOnInit() {
         this.showBody = ' - ' + this.email.body.replace(/<[^>]*>/g, '')

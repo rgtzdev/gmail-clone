@@ -118,9 +118,9 @@
         .date {
             text-align: right;
         }
-        
         &:hover {
             mat-checkbox {
+                margin-left: 15px;
                 button {
                     display: none;
                 }
