@@ -40,7 +40,7 @@ export class AuthService {
 
     getAccountByIndex(index: number) {
         if(index < this.accounts.value.length) {
-            this.accounts.value[index]
+            return this.accounts.value[index]
         } else {
             return null
         }

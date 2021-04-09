@@ -136,7 +136,7 @@
     border: none;
     background: transparent;
     &.small {
-        width: 100%;
+        width: 100% !important;
         margin: 0px auto 0px 16px !important;
     }
 }
