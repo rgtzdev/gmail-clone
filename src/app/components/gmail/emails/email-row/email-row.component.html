@@ -36,24 +36,28 @@
     </div>
     <div class="line-tools">
         <button 
+            id="toggleArchive"
             mat-icon-button
             [matTooltip]="email.archived? 'Unarchive' : 'Archive'" 
             (click)="toggleArchive()">
             <mat-icon>archive_outlined</mat-icon>
         </button>
         <button 
+            id="toggleDelete"
             mat-icon-button
             [matTooltip]="email.deleted? 'Undelete' : 'Delete'" 
             (click)="toggleDelete()">
             <mat-icon>delete</mat-icon>
         </button>
         <button 
+            id="toggleRead"
             mat-icon-button 
             [matTooltip]="email.read? 'Mark as unread' : 'Mark as read'" 
             (click)="toggleRead()">
             <mat-icon>mail</mat-icon>
         </button>
         <button 
+            id="toggleSnoozed"
             mat-icon-button
             [matTooltip]="email.snoozed? 'Unsnooze' : 'Snooze'"
             (click)="toggleSnoozed()">

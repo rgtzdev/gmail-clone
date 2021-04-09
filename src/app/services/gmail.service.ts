@@ -126,6 +126,18 @@ export class GmailService {
             !email.spam
         )
 
+    getCurrentEmails() {
+        return this.emails.value
+    }
+
+    setCurrentEmails(emails: Email[]) {
+        this.emails.next(emails)
+    }
+    
+    getCurrentFilteredEmails() {
+        return this.filteredEmails.value
+    }
+
     setFilteredEmails(emails: Email[]) {
         this.filteredEmails.next(emails)
     }
