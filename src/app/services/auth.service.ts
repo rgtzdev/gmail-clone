@@ -1,7 +1,9 @@
 import { BehaviorSubject } from "rxjs";
 import { Injectable } from "@angular/core";
 import { Account } from "../models/account.model";
+import * as emailData from '../../assets/mocks/emails.json';
 import * as accountData from '../../assets/mocks/accounts.json'
+import { Email } from "../models/email.model";
 
 @Injectable({
     providedIn: 'root'
@@ -11,7 +13,14 @@ export class AuthService {
     private accounts: BehaviorSubject<Account[]> = new BehaviorSubject<Account[]>(
         JSON.parse(
             JSON.stringify(
-                accountData.accounts
+                accountData.accounts.map(account => ({
+                    ... account,
+                    emails: JSON.parse(
+                        JSON.stringify(
+                            emailData.messages
+                        )
+                    ) as Email[]
+                }))
             )
         ) as Account[]
     )

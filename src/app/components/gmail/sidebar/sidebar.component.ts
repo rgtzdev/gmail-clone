@@ -1,6 +1,7 @@
 import { Subscription } from "rxjs";
 import { AutoUnsubscribe } from "ngx-auto-unsubscribe";
 import { AppService } from "src/app/services/app.service";
+import { AuthService } from "src/app/services/auth.service";
 import { FilterType } from "src/app/enums/filter-type.enum";
 import { Component, OnDestroy, OnInit } from "@angular/core";
 import { GmailService } from "src/app/services/gmail.service";
@@ -14,17 +15,24 @@ import { GmailService } from "src/app/services/gmail.service";
 export class SidebarComponent implements OnInit, OnDestroy {
 
     public inboxNotRead: number = 0
+    public sidebarOpen: boolean = true
     public currentSelectedMenuOption: string = 'INBOX'
 
-    public sidebarOpen: boolean = true
+    private subAccount: Subscription
     private subSideBarOpen: Subscription
 
     constructor(
         private app_service: AppService,
+        private auth_service: AuthService,
         private gmail_service: GmailService
     ) { }
 
     ngOnInit() {
+        this.subAccount = this.auth_service
+            .currentAccount
+            .subscribe(account => {
+                this.clickOnMenu('INBOX')
+            })
         this.subSideBarOpen = this.app_service
             .sidebarOpen
             .subscribe(so => {

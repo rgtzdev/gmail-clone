@@ -73,6 +73,7 @@ mat-toolbar {
     mat-list {
         width: 100%;
         mat-list-item {
+            cursor: pointer;
             border-bottom: solid 1px $scroll-grey;
             &.left-account {
                 font-size: 14px;

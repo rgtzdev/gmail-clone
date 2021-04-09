@@ -1,3 +1,5 @@
+import { Email } from "./email.model"
+
 export class Account {
     id: string
     username: string
@@ -5,4 +7,5 @@ export class Account {
     firstName: string
     lastName: string
     profilePic: string
+    emails?: Email[]
 }

@@ -2,29 +2,16 @@ import { BehaviorSubject } from "rxjs";
 import { Injectable } from "@angular/core";
 import { Email } from "../models/email.model";
 import { FilterType } from "../enums/filter-type.enum";
-import * as emailData from '../../assets/mocks/emails.json';
 
 @Injectable({
     providedIn: 'root'
 })
-export class GmailService { 
+export class GmailService {
 
-    private emails: BehaviorSubject<Email[]> = new BehaviorSubject<Email[]>(
-        JSON.parse(
-            JSON.stringify(
-                emailData.messages
-            )
-        ) as Email[]
-    )
+    private emails: BehaviorSubject<Email[]> = new BehaviorSubject<Email[]>(null)
     public currentEmails = this.emails.asObservable()
 
-    private filteredEmails: BehaviorSubject<Email[]> = new BehaviorSubject<Email[]>(
-        JSON.parse(
-            JSON.stringify(
-                emailData.messages
-            )
-        ) as Email[]
-    )
+    private filteredEmails: BehaviorSubject<Email[]> = new BehaviorSubject<Email[]>(null)
     public currentFilteredEmails = this.filteredEmails.asObservable()
 
     public currentIndex: BehaviorSubject<number> = new BehaviorSubject<number>(0)
@@ -35,7 +22,7 @@ export class GmailService {
         let findedI = emails.findIndex(e => e.id == email.id)
         emails[findedI] = email
         this.emails.next(emails)
-        if(this.currentFilter.value) {
+        if (this.currentFilter.value) {
             this.filterBy(this.currentFilter.value)
         } else {
             this.setFilteredEmails(
@@ -47,36 +34,36 @@ export class GmailService {
     }
 
     filterBy(filter: FilterType) {
-        switch(filter) {
-            case FilterType.ARCHIVED :
+        switch (filter) {
+            case FilterType.ARCHIVED:
                 this.setFilteredEmails(
                     this.emails
                         .value
                         .filter(email => email.archived)
                 )
                 break;
-            case FilterType.SNOOZED :
+            case FilterType.SNOOZED:
                 this.setFilteredEmails(
                     this.emails
                         .value
                         .filter(email => email.snoozed)
                 )
                 break;
-            case FilterType.DELETED :
+            case FilterType.DELETED:
                 this.setFilteredEmails(
                     this.emails
                         .value
                         .filter(email => email.deleted)
                 )
                 break;
-            case FilterType.STARRED :
+            case FilterType.STARRED:
                 this.setFilteredEmails(
                     this.emails
                         .value
                         .filter(email => email.star)
                 )
                 break;
-            case FilterType.WORK :
+            case FilterType.WORK:
                 this.setFilteredEmails(
                     this.emails
                         .value
@@ -85,7 +72,7 @@ export class GmailService {
                             .find(t => t == 'work'))
                 )
                 break;
-            case FilterType.TRAVEL :
+            case FilterType.TRAVEL:
                 this.setFilteredEmails(
                     this.emails
                         .value
@@ -94,7 +81,7 @@ export class GmailService {
                             .find(t => t == 'travel'))
                 )
                 break;
-            case FilterType.SPAM :
+            case FilterType.SPAM:
                 this.setFilteredEmails(
                     this.emails
                         .value
@@ -112,16 +99,16 @@ export class GmailService {
         this.currentFilter.next(filter)
     }
 
-    getInboxNotReadAmount = (   
-    ) : number => this.emails
+    getInboxNotReadAmount = (
+    ): number => this.emails
         .value
         .filter(e => !e.read).length
 
     filterWithoutArchivedOrDeleted = (
         emails: Email[]
-    ):Email[] => emails
-        .filter(email => 
-            !email.archived && 
+    ): Email[] => emails
+        .filter(email =>
+            !email.archived &&
             !email.deleted &&
             !email.spam
         )
@@ -133,7 +120,7 @@ export class GmailService {
     setCurrentEmails(emails: Email[]) {
         this.emails.next(emails)
     }
-    
+
     getCurrentFilteredEmails() {
         return this.filteredEmails.value
     }
