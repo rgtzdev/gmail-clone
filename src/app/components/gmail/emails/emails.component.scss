@@ -1,0 +1,12 @@
+
+.mat-tab-group {
+    height: calc(100% - 50px);
+    width: 100%;
+    .tab-icon {
+        margin-right: 8px;
+    }
+    ::ng-deep .mat-tab-label {
+        width: 20%;
+        height: 56px;
+    }
+}

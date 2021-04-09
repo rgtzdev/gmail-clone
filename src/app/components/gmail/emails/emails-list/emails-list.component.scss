@@ -1,0 +1,21 @@
+@import '../../../../../assets/styles/colors.scss';
+
+.emails-list-container {
+    width: calc(100% - 5px);
+    height: fit-content;
+    display: inline-block;
+    vertical-align: top;
+    .emails-list {
+        border-left: solid 1px #ccc;
+        border-right: solid 1px #ccc;
+        min-height: 40px;
+        background: white;
+        border-radius: 4px;
+        overflow: hidden;
+        display: block;
+    }
+}
+
+.cdk-drag-placeholder {
+    opacity: 0;
+}

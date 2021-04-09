@@ -1,0 +1,57 @@
+mat-toolbar {
+    width: 100%;
+    height: 50px;
+    background: transparent;
+    display: flex;
+    flex-direction: row;
+    border-bottom: solid 1px rgba(0, 0, 0, 0.12);
+    .selectall-menu {
+        border: none;
+        background: transparent;
+        mat-icon {
+            margin-top: 5px;
+        }
+    }
+    .menu-select-icon {
+        cursor: pointer;
+    }
+    button.tool-button {
+        margin-left: 10px;
+        padding: 0px;
+        mat-icon {
+            display: none;
+        }
+    }
+    mat-paginator {
+        flex: 100%;
+        height: 45px;    
+        margin-bottom: 10px;
+    }
+    @media (max-width:960px) {
+        mat-paginator {
+            display: none;
+        }
+        .selection-actions {
+            margin-top: 10px;
+            button.tool-button {
+                margin-left: 10px;
+                padding: 0px;
+                min-width: 30px !important;
+                max-width: 30px !important;
+                span {
+                    display: none;
+                }
+                mat-icon {
+                    display: block;
+                }
+            } 
+        }
+    }
+}
+
+button.mat-menu-item {
+    width: 148px;
+    text-align: left;
+    padding: 0px 30px;
+    height: 45px;
+}

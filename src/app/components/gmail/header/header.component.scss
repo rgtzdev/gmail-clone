@@ -1,0 +1,125 @@
+@import '../../../../assets/styles/colors.scss';
+
+mat-toolbar {
+    height: 64px;
+    width: 100%;
+    background-color:transparent;
+    border-bottom: solid 1px rgba(0,0,0,.12);
+    display: flex;
+    flex-direction: row;
+    justify-content: right;
+    img.logo {
+        min-width: 109px;
+        flex-basis: 109px;
+    }
+    .form-container {
+        margin-left: 85px;
+        margin-right: 85px;
+        height: 47px;
+        font-size: 14px;
+        flex: 1 1 auto;
+        display: flex;
+        flex-direction: row;
+        border: none;
+        border-radius: 10px;
+        background: $background-grey;
+        button {
+            height: 100%;
+            &.right {
+                margin-right: 10px;
+            }
+            &.left {
+                margin-left: 10px;
+            }
+        }
+        input {
+            background: transparent;
+            border: none !important;
+            width: 100%;
+            height: 100%;
+            font-size: 17px;
+            &:focus {
+                outline: none;
+            }
+        }
+    }
+    .right-box {
+        display: flex;
+        flex-direction: row;
+        button {
+            color: $soft-grey;
+        }
+        button.profile-pic {
+            margin-left: 15px;
+            img {
+                width: 100%;
+                height: 100%;
+                border-radius: 50%;
+                object-fit: cover;
+            }
+        }
+    }
+
+    @media (max-width: 960px) {
+        justify-content: space-between;
+        .form-container {
+            display: none;
+        }
+    }
+}
+
+.inside-menu-profiles {
+    width: 280px;
+    mat-list {
+        width: 100%;
+        mat-list-item {
+            border-bottom: solid 1px $scroll-grey;
+            &.left-account {
+                font-size: 14px;
+            }
+            &:last-child {
+                border-bottom: none;
+            }
+            .terms-box {
+                font-size: 14px;
+                justify-content:center;
+                a {
+                    padding: 0px 5px;
+                }
+            }
+            &.sign-out-box {
+                padding: 10px 0px;
+                button {
+                    margin: auto;
+                }
+            }
+            &.account-prev {
+                height: 190px;
+                padding: 20px 0px;
+                .account-prev-inner {
+                    width: 100%;
+                    height: 100%;
+                    text-align: center;
+                    display: flex;
+                    flex-direction: column;
+                    padding: 5px;
+                    h2, h3 {
+                        margin: 0px;
+                    }
+                    img {
+                        width: 80px;
+                        height: 80px;
+                        border-radius: 50%;
+                        object-fit: cover;
+                        margin: 0px auto;
+                    }
+                    .manage-btn {
+                        display: block;
+                        border-radius: 25px;
+                        margin-top: 15px;
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,44 @@
+@import '../../../../../assets/styles/colors.scss';
+
+mat-toolbar {
+    height: 64px;
+    background: transparent;
+    display: flex;
+    flex-direction: row;
+    padding: 20px 20px;
+    
+    a {
+        color: $progress-bar-color;
+        font-size: 12px;
+        font-weight: 400;
+    }
+    .data-usage-box {
+        height: 100%;
+        flex: 33%;
+        mat-progress-bar {
+            width: 150px;
+            ::ng-deep .mat-progress-bar-fill::after {
+                background-color: $progress-bar-color;
+            }            
+            ::ng-deep .mat-progress-bar-buffer {
+                background-color: #f1f3f4;
+            }
+        }
+        
+        a {
+            mat-icon {
+                font-size: 18px;
+                margin-top: 2px;
+            }
+        }
+    }
+    .data-activity-box {
+        flex: 33%;
+        text-align: right;
+    }
+
+    @media (max-width: 960px) {
+        flex-direction: column;
+        height: fit-content;
+    }
+}

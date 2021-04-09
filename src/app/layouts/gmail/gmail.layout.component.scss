@@ -1,0 +1,22 @@
+.dashboard-container {
+    position: absolute;
+    top: 64px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: transparent;
+    width: 100%;
+    .mat-drawer.mat-drawer-side {
+        z-index: 2;
+        color: #10101a;
+        width: 256px;
+        background: transparent;
+        border: none;
+        &.closed {
+            width: 72px;
+        }
+    }
+    ::ng-deep .mat-drawer-inner-container {
+        overflow: hidden !important;
+    }
+}

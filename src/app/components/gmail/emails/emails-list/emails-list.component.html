@@ -1,0 +1,16 @@
+<div class="emails-list-container">
+    <div 
+        id="all" 
+        cdkDropList 
+        *ngIf="emails && emails.length > 0"
+        class="emails-list"
+        cdkDropListSortingDisabled
+        (cdkDropListDropped)="drop($event)">
+        <app-email-row 
+            *ngFor="let email of emails" 
+            [email]="email">
+        </app-email-row>
+    </div>
+    <app-empty-list *ngIf="!(emails && emails.length > 0)"></app-empty-list>
+</div>
+<app-emails-footer></app-emails-footer>

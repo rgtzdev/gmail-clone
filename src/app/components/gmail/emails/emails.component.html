@@ -1,0 +1,41 @@
+<mat-tab-group>
+    <mat-tab>
+        <ng-template mat-tab-label>
+            <mat-icon class="tab-icon">inbox</mat-icon>
+            Primary
+        </ng-template>
+        <app-emails-list [emails]="filteredEmails"></app-emails-list>
+    </mat-tab>
+
+    <mat-tab>
+        <ng-template mat-tab-label>
+            <mat-icon class="tab-icon">people</mat-icon>
+            Social
+        </ng-template>
+        <app-emails-list [emails]="filteredEmails"></app-emails-list>
+    </mat-tab>
+
+    <mat-tab>
+        <ng-template mat-tab-label>
+            <mat-icon class="tab-icon">local_offer</mat-icon>
+            Promotions
+        </ng-template>
+        <app-emails-list [emails]="filteredEmails"></app-emails-list>
+    </mat-tab>
+
+    <mat-tab>
+        <ng-template mat-tab-label>
+            <mat-icon class="tab-icon">info</mat-icon>
+            Updates
+        </ng-template>
+        <app-emails-list [emails]="filteredEmails"></app-emails-list>
+    </mat-tab>
+    
+    <mat-tab>
+        <ng-template mat-tab-label>
+            <mat-icon class="tab-icon">question_answer</mat-icon>
+            Forums
+        </ng-template>
+        <app-emails-list [emails]="filteredEmails"></app-emails-list>
+    </mat-tab>
+</mat-tab-group>

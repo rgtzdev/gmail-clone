@@ -1,0 +1,66 @@
+<mat-toolbar>
+    <button mat-icon-button (click)="toggleMenu()">
+        <mat-icon>menu</mat-icon>
+    </button>
+    <img class="logo" src="./assets/imgs/logo.png" alt="">
+    <div class="form-container">
+        <button mat-icon-button class="left">
+            <mat-icon>search</mat-icon>
+        </button>
+        <input matInput placeholder="Search mail">
+        <button mat-icon-button class="right">
+            <mat-icon>arrow_drop_down</mat-icon>
+        </button>
+    </div>
+    <!-- <div class="half-space"></div> -->
+    <div class="right-box">
+        <button mat-icon-button>
+            <mat-icon>help_outline</mat-icon>
+        </button>
+        <button mat-icon-button>
+            <mat-icon>settings</mat-icon>
+        </button>
+        <button mat-icon-button>
+            <mat-icon>apps</mat-icon>
+        </button>
+        <button 
+            mat-icon-button 
+            class="profile-pic"
+            [matMenuTriggerFor]="menu">
+            <img [src]="account.profilePic" alt="">
+        </button>
+        <mat-menu #menu="matMenu">
+            <div class="inside-menu-profiles">
+                <mat-list>
+                    <mat-list-item class="account-prev">
+                        <div class="account-prev-inner">
+                            <img [src]="account.profilePic" alt="">
+                            <h2>{{ account.firstName }} {{ account.lastName }}</h2>
+                            <h3>{{ account.email }}</h3>
+                            <button class="manage-btn" mat-stroked-button color="accent">
+                                Manage Your Google Account
+                            </button>
+                        </div>
+                    </mat-list-item>
+                    <mat-list-item 
+                        *ngFor="let otherAccount of accountsDisplay" 
+                        class="left-account"
+                        (click)="changeAccount($event, otherAccount)">
+                        {{ otherAccount.email }}
+                    </mat-list-item>
+                    <mat-list-item class="sign-out-box">
+                        <button mat-stroked-button color="accent">
+                            Sign Out
+                        </button>
+                    </mat-list-item>
+                    <mat-list-item>
+                        <div class="terms-box">
+                            <a mat-basic-button>Terms</a>
+                            <a mat-basic-button>Privacy</a>
+                        </div>
+                    </mat-list-item>
+                </mat-list>
+            </div>
+        </mat-menu>
+    </div>
+</mat-toolbar>

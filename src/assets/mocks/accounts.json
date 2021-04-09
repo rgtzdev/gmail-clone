@@ -1,0 +1,36 @@
+{
+    "accounts": [
+        {
+            "id": "1",
+            "profilePic": "./assets/imgs/profile_pic_1.jpg",
+            "firstName": "Bill",
+            "lastName": "Gates",
+            "email": "bill.gates@hotmail.com",
+            "username": "billgates123"
+        },
+        {
+            "id": "2",
+            "profilePic": "./assets/imgs/profile_pic_4.jpg",
+            "firstName": "Steve",
+            "lastName": "Jobs",
+            "email": "steve.jobs@apple.com",
+            "username": "stevejobs123"
+        },
+        {
+            "id": "3",
+            "profilePic": "./assets/imgs/profile_pic_3.jpg",
+            "firstName": "Elon",
+            "lastName": "Musk",
+            "email": "elon.musk@spacex.com",
+            "username": "elonmusk123"
+        },
+        {
+            "id": "4",
+            "profilePic": "./assets/imgs/profile_pic_2.jpg",
+            "firstName": "Jeff",
+            "lastName": "Bezos",
+            "email": "jeffbezos@blueorigin.com",
+            "username": "jeffbezos123"
+        }
+    ]
+}

@@ -1,0 +1,159 @@
+@import '../../../../../assets/styles/colors.scss';
+
+.email-container {
+    padding: 20px 5px 20px 0px;
+    height: 40px;
+    color: rgba(0, 0, 0, 0.87);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: right;
+    box-sizing: border-box;
+    border-bottom: solid 1px rgba(0, 0, 0, 0.12);
+    cursor: pointer;
+    background: white;
+    font-size: 14px;
+    mat-checkbox {
+        margin-left: 15px;
+        button {
+            padding: 0px;
+            width: 15px;
+            color: $grey;
+            display: none;
+        }
+    }
+    .star {
+        margin-left: 5px;
+        &.isStared{
+            mat-icon {
+                color: $bight-yellow;
+            }
+        }
+    }
+    .sender {
+        margin-left: 5px;
+        font-weight: 700;
+        flex-basis: 168px;
+        min-width: 168px;
+        font-size: .875rem;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: clip;
+        .envelope {
+            display: none;
+        }
+        .subject {
+            display: none;
+        }
+    }
+    .content-preview {
+        flex: 1 1 auto;
+        display: flex;
+        flex-direction: row;
+        margin-right: 60px;
+        .title {
+            font-weight: bold;
+        }
+        .content {
+            margin-left: 2px;
+        }
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: clip;
+    }
+    .date {
+        flex-basis: 56px;
+        max-width: 56px;
+        white-space: nowrap;
+        margin-right: 15px;
+    }
+    .line-tools {
+        display: none;
+    }
+    &:hover {
+        mat-checkbox {
+            margin-left: 0px;
+            button {
+                display: block;
+            }
+        }
+        .date {
+            display: none;
+        }
+        .line-tools {
+            right: 0px;
+            top: 0px;
+            display: flex;
+            flex-direction: row;
+            button {
+                color: $soft-grey;
+            }
+        }
+    }
+    
+    &.read {
+        background: $background-grey;
+        .sender {
+            font-weight: normal;
+        }
+        .content-preview {
+            .title {
+                font-weight: normal;
+            }
+        }
+    }
+    @media (max-width: 690px) {
+        height: 70px;
+        width: 100%;
+        justify-content: center; 
+        .sender {
+            flex-grow: 2;
+            .subject {
+                display: block;
+            }
+        }
+        .content-preview {
+            display: none;
+        }
+        .date {
+            text-align: right;
+        }
+        
+        &:hover {
+            mat-checkbox {
+                button {
+                    display: none;
+                }
+            }
+            .line-tools {
+                display: none;
+            }
+        }
+    }
+}
+
+.cdk-drag-preview {
+    box-sizing: border-box;
+    border-radius: 5px;
+    background: $blue;
+    height: 55px !important;
+    width: 300px !important;
+    color: white;
+    padding: 20px 15px;
+    * {
+        display: none;
+    }
+    .sender {
+        display: flex;
+        font-weight: normal;
+        .envelope {
+            display: inline-flex;
+            margin-right: 25px;
+            color: white;
+        }
+        
+        .subject {
+            display: none;
+        }
+    }
+}

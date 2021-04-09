@@ -1,0 +1,62 @@
+<div 
+    class="email-container" 
+    [cdkDragData]="email" 
+    cdkDrag 
+    [class.read]="email.read">
+    <mat-checkbox 
+        [disableRipple]="true" 
+        labelPosition="before"
+        (change)="selectedChanged($event)" 
+        [(ngModel)]="email.checked">
+        <button mat-icon-button [disableRipple]="true">
+            <mat-icon>drag_indicator</mat-icon>
+        </button>
+    </mat-checkbox>
+    <button class="star" mat-icon-button (click)="toggleStar()" [class.isStared]="email.star">
+        <mat-icon>{{email.star ? 'star' : 'star_outline'}}</mat-icon>
+    </button>
+    <div class="sender">
+        <mat-icon class="envelope">mail</mat-icon>
+        {{ email.sender }}
+        <div class="subject">
+            {{ email.subject }}
+        </div>
+    </div>
+    <div class="content-preview">
+        <div class="title">
+            {{ email.subject }}
+        </div>
+        <div class="content">
+            {{ showBody }}
+        </div>
+    </div>
+    <div class="date">
+        {{ email.date | date : 'MMM d' }}
+    </div>
+    <div class="line-tools">
+        <button 
+            mat-icon-button
+            [matTooltip]="email.archived? 'Unarchive' : 'Archive'" 
+            (click)="toggleArchive()">
+            <mat-icon>archive_outlined</mat-icon>
+        </button>
+        <button 
+            mat-icon-button
+            [matTooltip]="email.deleted? 'Undelete' : 'Delete'" 
+            (click)="toggleDelete()">
+            <mat-icon>delete</mat-icon>
+        </button>
+        <button 
+            mat-icon-button 
+            [matTooltip]="email.read? 'Mark as unread' : 'Mark as read'" 
+            (click)="toggleRead()">
+            <mat-icon>mail</mat-icon>
+        </button>
+        <button 
+            mat-icon-button
+            [matTooltip]="email.snoozed? 'Unsnooze' : 'Snooze'"
+            (click)="toggleSnoozed()">
+            <mat-icon>schedule</mat-icon>
+        </button>
+    </div>
+</div>

@@ -1,0 +1,158 @@
+/* You can add global styles to this file, and also import other style files */
+@import "./assets/styles/colors.scss";
+@import '~@angular/material/theming';
+@include mat-core(); 
+
+$custom-primary: (
+    50 : #e4eefc,
+    100 : #bad5f8,
+    200 : #8db9f4,
+    300 : #5f9def,
+    400 : #3c88eb,
+    500 : #1a73e8,
+    600 : #176be5,
+    700 : #1360e2,
+    800 : #0f56de,
+    900 : #0843d8,
+    A100 : #ffffff,
+    A200 : #cfdaff,
+    A400 : #9cb3ff,
+    A700 : #829fff,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #ffffff,
+        500 : #ffffff,
+        600 : #ffffff,
+        700 : #ffffff,
+        800 : #ffffff,
+        900 : #ffffff,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #000000,
+        A700 : #000000,
+    )
+);
+
+$md-customred: (
+    50 : #fae6e5,
+    100 : #f4c1be,
+    200 : #ec9892,
+    300 : #e46e66,
+    400 : #df4f46,
+    500 : #d93025,
+    600 : #d52b21,
+    700 : #cf241b,
+    800 : #ca1e16,
+    900 : #c0130d,
+    A100 : #ffeeed,
+    A200 : #ffbcba,
+    A400 : #ff8a87,
+    A700 : #ff716e,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #ffffff,
+        500 : #ffffff,
+        600 : #ffffff,
+        700 : #ffffff,
+        800 : #ffffff,
+        900 : #ffffff,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #000000,
+        A700 : #000000,
+    )
+);
+
+$md-customgray: (
+    50 : #ececed,
+    100 : #cfd0d2,
+    200 : #afb1b4,
+    300 : #8f9295,
+    400 : #777a7f,
+    500 : #5f6368,
+    600 : #575b60,
+    700 : #4d5155,
+    800 : #43474b,
+    900 : #32353a,
+    A100 : #94bff9,
+    A200 : #64a3f6,
+    A400 : #2884ff,
+    A700 : #0e76ff,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #ffffff,
+        500 : #ffffff,
+        600 : #ffffff,
+        700 : #ffffff,
+        800 : #ffffff,
+        900 : #ffffff,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #ffffff,
+        A700 : #ffffff,
+    )
+);
+
+$my-app-primary: mat-palette($custom-primary);
+$my-app-accent:  mat-palette($md-customgray);
+$my-app-warn:    mat-palette($md-customred);
+
+$my-app-theme: mat-light-theme($my-app-primary, $my-app-accent, $my-app-warn);
+
+@include angular-material-theme($my-app-theme);
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    * {
+        font-family: Roboto, RobotoDraft, Helvetica, Arial, sans-serif;
+    }
+}
+body {
+    margin: 0;
+    color: #202124;
+}
+
+::-webkit-scrollbar {
+    display: block !important;
+    width: 12px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: $scroll-grey;
+}
+::-webkit-scrollbar-track {
+    background: white;
+}
+::-webkit-scrollbar-thumb {
+    background: $scroll-grey;
+}
+::-webkit-scrollbar-thumb:window-inactive {
+    background: $scroll-grey;
+}
+
+::ng-deep .mat-checkbox-checked.mat-primary .mat-checkbox-ripple .mat-ripple-element {
+    opacity: 0.03 !important;
+    background-color: #005691 !important;
+}
+
+::ng-deep .mat-checkbox-checked.mat-primary .mat-checkbox-background,
+.mat-checkbox-indeterminate.mat-primary .mat-checkbox-background {
+    background-color: #005691;
+}
+
+.terms-box {
+    flex: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}

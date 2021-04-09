@@ -1,0 +1,127 @@
+<div class="create-container">
+    <button class="super-create-button" mat-button [class.small]="!sidebarOpen">
+        <mat-icon class="icon"></mat-icon> <div>
+            Compose
+        </div> 
+    </button>
+</div>
+<mat-accordion>
+    <mat-expansion-panel hideToggle [expanded]="true">
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                <button class="icon-panel-title small" [hidden]="sidebarOpen">
+                    <mat-icon>mail</mat-icon>
+                </button>
+                <button class="icon-panel-title" [hidden]="!sidebarOpen">
+                    <mat-icon>arrow_right</mat-icon>
+                </button>
+                <div class="inner-title" [hidden]="!sidebarOpen">
+                    Mail
+                </div>
+            </mat-panel-title>
+        </mat-expansion-panel-header>
+
+        <mat-nav-list >
+            <a 
+                mat-list-item
+                class="red"
+                (click)="clickOnMenu('INBOX')" 
+                [class.small]="!sidebarOpen"
+                [class.selected]="currentSelectedMenuOption == 'INBOX'">
+                <div class="inner-list-item" >
+                    <mat-icon>inbox</mat-icon> 
+                    <div class="inner-text" >Inbox</div>
+                </div>
+            </a>
+            <a 
+                mat-list-item 
+                (click)="clickOnMenu('STARRED')" 
+                [class.small]="!sidebarOpen"
+                [class.selected]="currentSelectedMenuOption == 'STARRED'">
+                <div class="inner-list-item">
+                    <mat-icon>star_outline</mat-icon> 
+                    <div class="inner-text">Starred</div>
+                </div>
+            </a>
+            <a  
+                mat-list-item
+                (click)="clickOnMenu('SNOOZED')" 
+                [class.small]="!sidebarOpen"
+                [class.selected]="currentSelectedMenuOption == 'SNOOZED'">
+                <div class="inner-list-item">
+                    <mat-icon>schedule</mat-icon> 
+                    <div class="inner-text">Snoozed</div>
+                </div>
+            </a>
+            <a 
+                mat-list-item 
+                (click)="clickOnMenu('WORK')" 
+                [class.small]="!sidebarOpen"
+                [class.selected]="currentSelectedMenuOption == 'WORK'">
+                <div class="inner-list-item">
+                    <mat-icon>work_outline</mat-icon> 
+                    <div class="inner-text">
+                        Work
+                    </div>
+                </div>
+            </a>
+            <a 
+                mat-list-item 
+                (click)="clickOnMenu('TRAVEL')" 
+                [class.small]="!sidebarOpen"
+                [class.selected]="currentSelectedMenuOption == 'TRAVEL'">
+                <div class="inner-list-item">
+                    <mat-icon>send</mat-icon> 
+                    <div class="inner-text">
+                        Travel
+                    </div>
+                </div>
+            </a>
+            <a 
+                mat-list-item 
+                [class.highlighted]="true"
+                [class.small]="!sidebarOpen"
+                (click)="clickOnMenu('ARCHIVED')" 
+                [class.selected]="currentSelectedMenuOption == 'ARCHIVED'">
+                <div class="inner-list-item">
+                    <mat-icon>archive_outline</mat-icon> <div class="inner-text">Archived</div>
+                </div>
+            </a>
+            <a 
+                mat-list-item 
+                [class.highlighted]="true"
+                [class.small]="!sidebarOpen"
+                (click)="clickOnMenu('DELETED')" 
+                [class.selected]="currentSelectedMenuOption == 'DELETED'">
+                <div class="inner-list-item">
+                    <mat-icon>delete</mat-icon> <div class="inner-text">Deleted</div>
+                </div>
+            </a>
+            <a 
+                mat-list-item 
+                [class.highlighted]="true"
+                [class.small]="!sidebarOpen"
+                (click)="clickOnMenu('SPAM')" 
+                [class.selected]="currentSelectedMenuOption == 'SPAM'">
+                <div class="inner-list-item">
+                    <mat-icon>error_outline</mat-icon> <div class="inner-text">Spam</div>
+                </div>
+            </a>
+        </mat-nav-list>
+    </mat-expansion-panel>
+    <mat-expansion-panel hideToggle>
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                <button class="icon-panel-title small" [hidden]="sidebarOpen">
+                    <mat-icon>videocam</mat-icon>
+                </button>
+                <button class="icon-panel-title" [hidden]="!sidebarOpen">
+                    <mat-icon>arrow_right</mat-icon>
+                </button>
+                <div class="inner-title" [hidden]="!sidebarOpen">
+                    Meets
+                </div>
+            </mat-panel-title>
+        </mat-expansion-panel-header>
+    </mat-expansion-panel>
+</mat-accordion>

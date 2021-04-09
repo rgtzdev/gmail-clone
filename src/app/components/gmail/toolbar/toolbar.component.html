@@ -1,0 +1,91 @@
+<mat-toolbar>
+    <button class="selectall-menu">
+        <mat-checkbox 
+            [(ngModel)]="selectCheckbox"
+            (change)="allCheckChanges($event)" 
+            matTooltip="Select"></mat-checkbox>
+    </button>
+    <mat-icon 
+        class="menu-select-icon" 
+        [matMenuTriggerFor]="menu">arrow_drop_down</mat-icon>
+    <mat-menu #menu="matMenu" [xPosition]="'before'">
+        <button mat-menu-item (click)="toggleChecked(true)">
+            <span>All</span>
+        </button>
+        <button mat-menu-item (click)="toggleChecked(false)">
+            <span>None</span>
+        </button>
+        <button mat-menu-item (click)="selectAllRead()">
+            <span>Read</span>
+        </button>
+        <button mat-menu-item (click)="selectAllUnread()">
+            <span>Unread</span>
+        </button>
+        <button mat-menu-item (click)="selectAllStarred()">
+            <span>Started</span>
+        </button>
+        <button mat-menu-item (click)="selectAllUnstarred()">
+            <span>Unstarted</span>
+        </button>
+    </mat-menu>
+
+    <div class="ordinary-actions" [hidden]="!showAdvancedOptions">
+        <button mat-button class="tool-button">Refresh</button>
+        <button mat-button class="tool-button">More</button>
+    </div>
+
+    <div class="selection-actions" [hidden]="showAdvancedOptions">
+        <button 
+            mat-button 
+            class="tool-button" 
+            (click)="toggleSelected('ARCHIVED')">
+            <mat-icon>archive_outlined</mat-icon>
+            <span>
+                Archive
+            </span>
+        </button>
+        <button 
+            mat-button 
+            class="tool-button" 
+            (click)="toggleSelected('SPAM')">
+            <mat-icon>error_outline</mat-icon>
+            <span>
+                Spam
+            </span>
+        </button>
+        <button 
+            mat-button 
+            class="tool-button" 
+            (click)="toggleSelected('DELETED')">
+            <mat-icon>delete</mat-icon>
+            <span>
+                Delete
+            </span>
+        </button>
+        <button 
+            mat-button 
+            class="tool-button" 
+            (click)="toggleSelected('READ')">
+            <mat-icon>mail</mat-icon>
+            <span>
+                Mark as read
+            </span>
+        </button>
+        <button 
+            mat-button 
+            class="tool-button" 
+            (click)="toggleSelected('SNOOZED')">
+            <mat-icon>schedule</mat-icon>
+            <span>
+                Snooze
+            </span>
+        </button>
+    </div>
+
+    <mat-paginator
+        [hidePageSize]="true"
+        [pageSize]="pageSize"
+        (page)="paginatorEventHandler($event)"
+        [length]="filteredEmails?.length">
+    </mat-paginator>
+</mat-toolbar>
