@@ -18,6 +18,6 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 
 Run `npm test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-# Demo
+## Demo
 
 https://gmail-clone-front.herokuapp.com
